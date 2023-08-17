@@ -8,11 +8,12 @@ interface Data {
   }
   
   interface StopLocation {
-    StopLocation: {
-        dist: number;
-        extId: string;
-        name: string;
-    }
+    StopLocation: Selected;
   }
 
-  export type { Data, StopLocation, Coords }
+  interface Selected {
+    dist: number;
+    extId: string;
+    name: string;
+  }
+  export type { Data, StopLocation, Coords, Selected }

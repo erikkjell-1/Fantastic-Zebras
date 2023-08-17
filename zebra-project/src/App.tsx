@@ -3,16 +3,16 @@ import './App.css'
 import { getPosition } from './getStations'
 import { reverseGeocode } from './getStations'
 import { Data } from './interfaces'
-import { StopLocation, Coords, Selected } from "./interfaces";
+import { StopLocation, Coords, Stop } from "./interfaces";
 
 
 
 function App() {
   const [position, setPosition] = useState<Coords | null>(null)
   const [station, setStation] = useState<Data | null>(null)
-  const [selectedStop, setSelectedStop] = useState<Selected | null>(null)
+  const [selectedStop, setSelectedStop] = useState<Stop | null>(null)
 
-function handleClick(stop: Selected) {
+function handleClick(stop: Stop) {
   setSelectedStop(stop)
   console.log(stop);
   

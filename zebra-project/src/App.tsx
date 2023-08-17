@@ -3,17 +3,21 @@ import './App.css'
 import { getPosition } from './getStations'
 import { reverseGeocode } from './getStations'
 import { Data } from './interfaces'
-import { StopLocation, Coords } from "./interfaces";
+import { StopLocation, Coords, Selected } from "./interfaces";
+
 
 
 function App() {
   const [position, setPosition] = useState<Coords | null>(null)
   const [station, setStation] = useState<Data | null>(null)
-  const [departure, setDeparture] = useState('')
+  const [selectedStop, setSelectedStop] = useState<Selected | null>(null)
 
-  function handleClick() {
-    
-  }
+function handleClick(stop: Selected) {
+  setSelectedStop(stop)
+  console.log(stop);
+  
+  
+}
 
 
   return (
@@ -28,9 +32,9 @@ function App() {
     }
       {station ?
       station.stopLocationOrCoordLocation.map(stop => (
-      <ul> 
-          <button onClick={handleClick} key={stop.StopLocation.extId}>{stop.StopLocation.name}{stop.StopLocation.dist}</button>
-      </ul>
+       
+          <button onClick={() => handleClick(stop.StopLocation)} key={stop.StopLocation.extId}>{stop.StopLocation.name}{stop.StopLocation.dist}</button>
+      
       ))
     : <p>ingen station</p>
     }
@@ -40,3 +44,10 @@ function App() {
 }
 
 export default App
+
+
+//välja hållplats
+//få fram tidtabeller för den valda hållplatsen
+// - hämta tidtabeller från API
+// - spara tidtabeller i state
+//Visa tiderna

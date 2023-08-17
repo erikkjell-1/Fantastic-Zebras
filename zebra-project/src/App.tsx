@@ -16,9 +16,7 @@ function handleClick(stop: Stop) {
   setSelectedStop(stop)
   console.log(stop);
   
-  
 }
-
 
   return (
     <div>
@@ -32,9 +30,7 @@ function handleClick(stop: Stop) {
     }
       {station ?
       station.stopLocationOrCoordLocation.map(stop => (
-       
           <button onClick={() => handleClick(stop.StopLocation)} key={stop.StopLocation.extId}>{stop.StopLocation.name}{stop.StopLocation.dist}</button>
-      
       ))
     : <p>ingen station</p>
     }
@@ -48,6 +44,6 @@ export default App
 
 //välja hållplats
 //få fram tidtabeller för den valda hållplatsen
-// - hämta tidtabeller från API
+// - hämta API
 // - spara tidtabeller i state
 //Visa tiderna

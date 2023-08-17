@@ -22,13 +22,12 @@ function getPosition(setPosition: ReactSetState<Coords | null>) {
 
 const apiKey: string ='b4c630ea-b9b0-4bf9-967f-60537212e062'
 
-async function reverseGeocode(lat: number, lon: number, setStation:any) {
+async function reverseGeocode(lat: number, lon: number, setStation) {
   const url = `https://api.resrobot.se/v2.1/location.nearbystops?originCoordLat=${lat}&originCoordLong=${lon}&format=json&accessId=${apiKey}`
   const response = await fetch(url)
   const data: Data = await response.json()
   console.log(data.stopLocationOrCoordLocation);
 
-  //setStation(data.stopLocationOrCoordLocation)
   setStation(data)
 }
 

@@ -16,4 +16,9 @@ interface Data {
     extId: string;
     name: string;
   }
+
+  interface Departures {
+    name: string;
+    direction: string;
+  }
   export type { Data, StopLocation, Coords, Stop }

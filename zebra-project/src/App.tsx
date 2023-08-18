@@ -15,7 +15,17 @@ function App() {
 function handleClick(stop: Stop) {
   setSelectedStop(stop)
   console.log(stop);
-  
+  getDepartures()
+}
+
+const apiKey: string ='b4c630ea-b9b0-4bf9-967f-60537212e062'
+
+async function getDepartures(extId: string) {
+  const url = `https://api.resrobot.se/v2.1/departureBoard?id=${extId}&format=json&accessId=${apiKey}`
+  const response = await fetch(url)
+  const data = await response.json()
+
+  console.log(data)
 }
 
   return (

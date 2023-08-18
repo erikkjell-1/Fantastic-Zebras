@@ -18,8 +18,9 @@ function handleClick(stop: Stop) {
   getDepartures()
 }
 
-const apiKey: string ='b4c630ea-b9b0-4bf9-967f-60537212e062'
 
+//Hämtar avgångar inte hittat rätt variabel för att få med extId än
+const apiKey: string ='b4c630ea-b9b0-4bf9-967f-60537212e062'
 async function getDepartures(extId: string) {
   const url = `https://api.resrobot.se/v2.1/departureBoard?id=${extId}&format=json&accessId=${apiKey}`
   const response = await fetch(url)

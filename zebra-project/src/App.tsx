@@ -12,13 +12,6 @@ function App() {
   const [station, setStation] = useState<Data | null>(null)
   const [selectedStop, setSelectedStop] = useState<Stop | null>(null)
 
-function handleClick(stop: Stop) {
-  setSelectedStop(stop)
-  console.log(stop);
-  getDepartures()
-}
-
-
 //Hämtar avgångar inte hittat rätt variabel för att få med extId än
 const apiKey: string ='b4c630ea-b9b0-4bf9-967f-60537212e062'
 async function getDepartures(extId: string) {
@@ -26,7 +19,7 @@ async function getDepartures(extId: string) {
   const response = await fetch(url)
   const data = await response.json()
 
-  console.log(data)
+  console.log(data);
 }
 
   return (
@@ -41,7 +34,7 @@ async function getDepartures(extId: string) {
     }
       {station ?
       station.stopLocationOrCoordLocation.map(stop => (
-          <button onClick={() => handleClick(stop.StopLocation)} key={stop.StopLocation.extId}>{stop.StopLocation.name}{stop.StopLocation.dist}</button>
+          <button onClick={() => getDepartures(stop.StopLocation.extId)}>{stop.StopLocation.name}{stop.StopLocation.dist}</button>
       ))
     : <p>ingen station</p>
     }

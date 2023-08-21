@@ -3,7 +3,7 @@ import './App.css'
 import { getPosition } from './getStations'
 import { reverseGeocode } from './getStations'
 import { Data } from './interfaces'
-import { StopLocation, Coords, Stop } from "./interfaces";
+import { StopLocation, Coords, Stop, Departure } from "./interfaces";
 
 
 
@@ -11,6 +11,7 @@ function App() {
   const [position, setPosition] = useState<Coords | null>(null)
   const [station, setStation] = useState<Data | null>(null)
   const [selectedStop, setSelectedStop] = useState<Stop | null>(null)
+  const [departure, setDeparture] = useState<Departure | null>(null)
 
 //Hämtar avgångar inte hittat rätt variabel för att få med extId än
 const apiKey: string ='b4c630ea-b9b0-4bf9-967f-60537212e062'
@@ -19,7 +20,7 @@ async function getDepartures(extId: string) {
   const response = await fetch(url)
   const data = await response.json()
 
-  console.log(data);
+  setDeparture(data);
 }
 
   return (
@@ -38,6 +39,9 @@ async function getDepartures(extId: string) {
       ))
     : <p>ingen station</p>
     }
+     
+
+     :}
 
     </div>
   )

@@ -17,8 +17,9 @@ interface Data {
     name: string;
   }
 
-  interface Departures {
+  interface Departure {
     name: string;
     direction: string;
+    time: string;
   }
-  export type { Data, StopLocation, Coords, Stop }
+  export type { Data, StopLocation, Coords, Stop, Departure}
